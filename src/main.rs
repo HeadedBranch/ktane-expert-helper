@@ -1,9 +1,9 @@
 mod modules;
 use crate::modules::{Edgework, Module};
-use modules::wires::WireModule;
+use crate::modules::button::ButtonModule;
 
 fn main() {
     let edgework = Edgework::get_info();
-    let wires = WireModule::get_info();
-    println!("{}", wires.solve(edgework))
+    let module = ButtonModule::get_info();
+    println!("{}", module.solve(edgework))
 }
