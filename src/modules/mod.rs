@@ -17,8 +17,8 @@ pub struct Edgework {
 }
 
 pub struct Indicators {
-    car: bool,
-    frk: bool
+    pub car: bool,
+    pub frk: bool
 }
 
 impl Edgework {
@@ -46,27 +46,27 @@ impl Edgework {
         let parallel_port = input.trim().to_lowercase() == "y";
         input.clear();
 
-        println!("Enter Battery count");
-        io::stdin()
-            .read_line(&mut input)
-            .expect("Failed to read input");
-        let batteries: u8 = input.trim().parse().expect("Please enter a valid number");
-        input.clear();
-
-        println!("Is there a CAR indicator");
+        println!("Is there a CAR indicator (y/n)");
         io::stdin()
             .read_line(&mut input)
             .expect("Failed to read input");
         let car = input.trim().to_lowercase() == "y";
         input.clear();
-        
-        println!("Is there a FRK indicator");
+
+        println!("Is there a FRK indicator (y/n)");
         io::stdin()
             .read_line(&mut input)
             .expect("Failed to read input");
         let frk = input.trim().to_lowercase() == "y";
         input.clear();
-        
+
+        println!("Enter Battery count");
+        io::stdin()
+            .read_line(&mut input)
+            .expect("Failed to read input");
+        let batteries: u8 = input.trim().parse().unwrap_or(0);
+        input.clear();
+
         Edgework {
             serial_vowel,
             serial_even,

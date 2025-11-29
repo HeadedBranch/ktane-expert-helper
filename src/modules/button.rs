@@ -59,7 +59,6 @@ impl Module for ButtonModule {
         loop {
             let mut info = String::new();
             stdin().read_line(&mut info).expect("Valid String");
-            let info = info.to_lowercase();
             match ButtonModule::try_from(info.as_str()) {
                 Ok(b) => return b,
                 Err(e) => println!("{e}")
